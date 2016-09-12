@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC "-//Puppy Crawl//DTD Suppressions 1.1//EN" "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+<suppressions>
+<!--	<suppress checks="[a-zA-Z0-9]*" files="src/main/java/com/avivacanada/services/*" />-->
+	<suppress checks="[a-zA-Z0-9]*" files="([^(com)])+([a-z]*[\\/]avivacanada[\\/]services[\\/])+"/>
+	<suppress checks="[a-zA-Z0-9]*" files="([^(decoderserviceresponse)])+([a-z]*[\\/]schemas[\\/]vinlinkdecoder[\\/])+"/>
+	<!-- <suppress checks="[a-zA-Z0-9]*" files="src/main/java/com/avivacanada/gi/*" />  -->
+	<suppress checks="[a-zA-Z0-9]*" files="([^(com)])+([a-z]*[\\/]avivacanada[\\/]gi[\\/])+"/>
+    <!-- <suppress checks="[a-zA-Z0-9]*" files="com[\\/]avivacanada[\\/]services[\\/]"/>/>
+   <suppress checks="[a-zA-Z0-9]*" files="decoderserviceresponse[\\/]schemas[\\/]vinlinkdecoder[\\/]vds[\\/]ibc[\\/]"/>/>-->
+</suppressions>

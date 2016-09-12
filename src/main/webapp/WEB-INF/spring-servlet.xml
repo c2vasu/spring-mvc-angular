@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	default-lazy-init="false" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="cache" value="false" />
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate" />
+
+	<!-- i10n -->
+	<mvc:interceptors>
+		<!-- Changes the locale when a 'lang' request parameter is sent; e.g. /?lang=tr -->
+		<bean id="localeChangeInterceptor"
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="lang" />
+		</bean>
+	</mvc:interceptors>
+
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="defaultLocale" value="en" />
+		<property name="cookieName" value="localizationCookie" />
+		<property name="cookieMaxAge" value="3600" />
+	</bean>
+	<!-- /i10n -->
+
+	<bean id="configProp"
+		class="org.apache.commons.configuration.PropertiesConfiguration">
+		<constructor-arg index="0">
+			<value>#{systemProperties['env.config.file']}</value>
+		</constructor-arg>
+	</bean>
+		
+		
+ 	<context:component-scan base-package="spring.mvc.angular.web.controller" />
+
+	<!-- singleton properties file -->
+	<util:properties id="nodeProperty" location="file:#{systemProperties['env.config.file']}" />
+	<context:property-placeholder properties-ref="nodeProperty" />
+
+	<mvc:annotation-driven />
+	
+	<mvc:resources mapping="/resources/**" location="/resources/"
+		cache-period="31556926" />
+	<mvc:resources mapping="/resourcesProperty/**" location="/resourcesProperty/"
+		cache-period="31556926" />
+</beans>
