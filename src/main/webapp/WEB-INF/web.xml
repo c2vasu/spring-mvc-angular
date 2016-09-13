@@ -13,7 +13,7 @@
     <filter>
         <filter-name>corsFilter</filter-name>
         <filter-class>
-            spring.mvc.angular.common.CORSFilter
+            spring.mvc.angular.security.CORSFilter
         </filter-class>
     </filter>
 

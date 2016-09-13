@@ -14,14 +14,14 @@
 	
 	
 	<!-- Session management -->
-	<bean id="sessionPreference" class="spring.mvc.angular.common.domain.SessionPreference" />
+	<bean id="sessionPreference" class="spring.mvc.angular.domain.SessionPreference" />
 	
 	<!-- Repositories Config -->
-	<!-- <bean id="yearMakeModelRepository" class="com.aviva.global.gi.modules.pl.modules.quote.auto.repository.cache.impl.YearMakeModelRepositoryImpl" /> -->
+	<bean id="backendRepository" class="spring.mvc.angular.repository.impl.BackendFileRepositoryImpl" />
 	
 		
 	<!-- Services Config -->
-	<!-- <bean id="yearMakeModelCacheService" class="com.aviva.global.gi.modules.pl.modules.quote.auto.service.utility.cache.impl.YearMakeModelCacheServiceImpl" /> -->
+	<bean id="backendService" class="spring.mvc.angular.service.impl.BackendServiceImpl" />
 	
 	
 	<!-- XPath Expression Engine for XML configuration -->	

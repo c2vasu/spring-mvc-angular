@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                             http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd" >
                             
-   <beans:bean id="csrfSecurityRequestMatcher" class="spring.mvc.angular.common.CsrfSecurityRequestMatcher"/>
+   <beans:bean id="csrfSecurityRequestMatcher" class="spring.mvc.angular.security.CsrfSecurityRequestMatcher"/>
     <http>
     	<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="any"/>
   		<port-mappings>

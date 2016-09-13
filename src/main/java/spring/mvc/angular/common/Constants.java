@@ -24,9 +24,9 @@ public interface Constants {
 	public static final String MULTIVEHICLE_PAGE_BEAN = "multiVehiclePageBean";
 	
 	/**
-	 * controller for demo.
+	 * controller for api.
 	 */
-	public static final String DEMO_PAGE = "/api";
+	public static final String API_CONTROLLER = "/mvc/api/{id}";
 	
 	/**
 	 * controller for index page.
@@ -53,5 +53,14 @@ public interface Constants {
 	 */
 	public static final String SAMPLE = "/spring-mvc-angular/";
 	
+	/**
+	 * Backend repository key.
+	 */
+	public static final String BACKEND_REPOSITORY_KEY = "backendRepository";
+	
+	/**
+	 * Backend service key.
+	 */
+	public static final String BACKEND_SERVICE_KEY = "backendService";
 	
 }

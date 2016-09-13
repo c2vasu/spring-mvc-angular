@@ -48,7 +48,7 @@
 	</bean>
 		
 		
- 	<context:component-scan base-package="spring.mvc.angular.web.controller" />
+ 	<context:component-scan base-package="spring.mvc.angular.controller,spring.mvc.angular.repository,spring.mvc.angular.service" />
 
 	<!-- singleton properties file -->
 	<util:properties id="nodeProperty" location="file:#{systemProperties['env.config.file']}" />
@@ -58,6 +58,6 @@
 	
 	<mvc:resources mapping="/resources/**" location="/resources/"
 		cache-period="31556926" />
-	<mvc:resources mapping="/resourcesProperty/**" location="/resourcesProperty/"
+	<mvc:resources mapping="/files/**" location="/files/"
 		cache-period="31556926" />
 </beans>
