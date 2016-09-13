@@ -1,0 +1,11 @@
+/* Styles go here */
+
+#viewport {
+  width: 400px;
+  height: 200px;
+  overflow-y: scroll;
+}
+
+#viewport table {
+  width: 100%;
+}
